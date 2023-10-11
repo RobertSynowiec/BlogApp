@@ -1,9 +1,10 @@
-
+import ButtonAdd from '../../common/ButtonAdd/ButtonAdd'
 const Home = () => {
+
     return (
-        <div>
-            <h1>Home</h1>
-            <p>Subtilte</p>
+        <div className='d-flex justify-content-between'>
+            <h1>All posts</h1>
+            <ButtonAdd href='/post/add'>Add post</ButtonAdd>{' '}
         </div>
     );
 };
