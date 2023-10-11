@@ -6,10 +6,9 @@ import PostAdd from './components/pages/PostAdd/PostAdd'
 import PostEdit from './components/pages/PostEdit/PostEdit'
 import NotFound from './components/pages/NotFound/NotFound'
 
-function App() {
+const App = () => {
   return (
     <main>
-      <div>Hello world</div>
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
