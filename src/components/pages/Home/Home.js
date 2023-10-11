@@ -1,11 +1,17 @@
-import ButtonAdd from '../../common/ButtonAdd/ButtonAdd'
+import ButtonMain from '../../common/ButtonMain/ButtonMain'
+import Posts from '../../views/Posts/Posts'
 const Home = () => {
 
     return (
-        <div className='d-flex justify-content-between'>
-            <h1>All posts</h1>
-            <ButtonAdd href='/post/add'>Add post</ButtonAdd>{' '}
-        </div>
+        <>
+            <div className='d-flex justify-content-between'>
+                <h1>All posts</h1>
+                <ButtonMain href='/post/add' variant='outline-info'>Add post</ButtonMain>{' '}
+            </div>
+            <div mx-0 >
+                <Posts />
+            </div>
+        </>
     );
 };
 
