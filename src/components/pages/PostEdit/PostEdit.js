@@ -1,10 +1,9 @@
-import styles from './PostEdit.module.scss';
 
 const PostEdit = () => {
     return (
-        <div className={styles.hero}>
-            <h1 className={styles.title}>PostEdit</h1>
-            <p className={styles.subtitle}>Subtilte</p>
+        <div>
+            <h1>PostEdit</h1>
+            <p>Subtilte</p>
         </div>
     );
 };
