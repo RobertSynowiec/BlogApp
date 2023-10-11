@@ -1,7 +1,7 @@
 const Footer = () => {
     return (
-        <div>
-            <h1>Footer</h1>
+        <div className='text-center text-muted p-4'>
+            Copyright © BookApp 2023:
         </div>
     );
 };
