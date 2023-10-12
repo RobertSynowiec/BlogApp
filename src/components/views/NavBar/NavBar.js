@@ -13,8 +13,8 @@ const NavBar = () => {
                 <Navbar.Toggle />
                 <Navbar.Collapse className='justify-content-end'>
                     <Nav>
-                        <Nav.Link className={styles.navTextColor} href="#home">Home</Nav.Link>
-                        <Nav.Link className={styles.navTextColor} href="#about">About</Nav.Link>
+                        <Nav.Link className={styles.navTextColor} href="/">Home</Nav.Link>
+                        <Nav.Link className={styles.navTextColor} href="/about">About</Nav.Link>
                     </Nav>
                 </Navbar.Collapse>
             </Container>

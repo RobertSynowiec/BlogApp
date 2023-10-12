@@ -4,7 +4,7 @@ const ButtonMain = props => {
 
     return (
         <div>
-            <Button href={props.href} variant={props.variant} >{props.children}</Button>{' '}
+            <Button className={props.className} href={props.href} variant={props.variant} >{props.children}</Button>{' '}
         </div>
     );
 };

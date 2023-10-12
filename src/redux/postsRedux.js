@@ -1,4 +1,9 @@
 
+// slectors
+export const getAllPosts = (state => state.posts);
+export const getPostById = (state, id) => state.posts
+    .filter(post => post.id === id);
+
 // actions
 
 // action creators

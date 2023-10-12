@@ -8,7 +8,7 @@ const Home = () => {
                 <h1>All posts</h1>
                 <ButtonMain href='/post/add' variant='outline-info'>Add post</ButtonMain>{' '}
             </div>
-            <div mx-0 >
+            <div>
                 <Posts />
             </div>
         </>
