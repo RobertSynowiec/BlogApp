@@ -1,25 +1,23 @@
 import CardPost from '../../views/CardPost/CardPost';
 import { getPostById } from '../../../redux/postsRedux';
-import { useSelector, useDispatch } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { useParams } from 'react-router';
 import { Navigate } from 'react-router-dom';
 import ButtonMain from '../../common/ButtonMain/ButtonMain';
 import Card from 'react-bootstrap/Card';
-import { removePost } from '../../../redux/postsRedux'
+import { useState } from 'react';
+import ModuleDeletePost from '../../common/Modal/Modal'
 
 const Post = () => {
+    const [show, setShow] = useState(false);
+
+    const handleClose = () => setShow(false);
+    const handleShow = () => setShow(true);
+
+
     const { id } = useParams();
 
     const postData = useSelector(state => getPostById(state, id));
-    const dispatch = useDispatch();
-
-    const remove = e => {
-        e.preventDefault();
-        console.log('działa')
-        if (postData && postData.length > 0) {
-            dispatch(removePost(postData[0].id));
-        }
-    };
 
     if (!postData || postData.length === 0) return <Navigate to="/" />;
 
@@ -29,7 +27,10 @@ const Post = () => {
                 <h1>{postData[0].title}</h1>
                 <div className='d-flex'>
                     <ButtonMain href={`/post/edit/${id}`} variant='outline-info'>Edit</ButtonMain>
-                    <ButtonMain onClick={remove} className='ms-1' variant='outline-danger'>Delete</ButtonMain>
+
+                    <ButtonMain className='ms-1' variant="outline-danger" onClick={handleShow}>
+                        Delete
+                    </ButtonMain>
                 </div>
             </div>
             <div className='d-flex justify-content-around'>
@@ -46,6 +47,11 @@ const Post = () => {
                         />)}
                 </Card>
             </div>
+
+            <ModuleDeletePost
+                show={show}
+                handleClose={handleClose}
+            />
         </div>
     );
 };
