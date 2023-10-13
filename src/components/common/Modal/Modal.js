@@ -22,8 +22,8 @@ function ModuleDeletePost({ show, handleClose }) {
                 </Modal.Header>
                 <Modal.Body>This operation will completely remove this post from the app. Are you sure you want to do that?</Modal.Body>
                 <Modal.Footer>
-                    <Button onClick={handleClose} variant='outline-info'>Cancel</Button>
-                    <Button variant="primary" onClick={remove}>
+                    <Button onClick={handleClose} variant='secondary'>Cancel</Button>
+                    <Button variant="danger" onClick={remove}>
                         Remove
                     </Button>
                 </Modal.Footer>
