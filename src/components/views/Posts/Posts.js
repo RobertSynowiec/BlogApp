@@ -25,7 +25,8 @@ const Posts = () => {
 
                         />
                         <ButtonMain className='ms-3'
-                            href={`/post/${post.id}`} variant="primary">Read more</ButtonMain>
+                            href={`/post/${post.id}`} variant="primary">Read more
+                        </ButtonMain>
                     </Card>
                 </Col>
             ))}

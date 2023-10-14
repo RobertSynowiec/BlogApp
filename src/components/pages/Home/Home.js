@@ -6,7 +6,7 @@ const Home = () => {
         <>
             <div className='d-flex justify-content-between'>
                 <h1>All posts</h1>
-                <ButtonMain href='/post/add' variant='outline-info'>Add post</ButtonMain>{' '}
+                <ButtonMain href='/post/add' variant='outline-info'>Add post</ButtonMain>
             </div>
             <div>
                 <Posts />
