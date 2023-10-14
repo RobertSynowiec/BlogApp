@@ -1,8 +1,15 @@
 import shortid from 'shortid';
+import { createSelector } from 'reselect';
+
 // slectors
-export const getAllPosts = (state => state.posts);
-export const getPostById = (state, id) => state.posts
-    .filter(post => post.id === id);
+const selectPosts = state => state.posts;
+const selectPostId = (state, id) => id;
+
+export const getAllPosts = createSelector([selectPosts], posts => posts);
+export const getPostById = createSelector(
+    [selectPosts, selectPostId],
+    (posts, id) => posts.find(post => post.id === id)
+);
 
 // actions
 const createActionName = actionName => `app/posts/${actionName}`;

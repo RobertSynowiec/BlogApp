@@ -9,6 +9,8 @@ import { useState } from 'react';
 import ModuleDeletePost from '../../common/Modal/Modal'
 
 const Post = () => {
+
+    //debugger
     const [show, setShow] = useState(false);
 
     const handleClose = () => setShow(false);
@@ -19,12 +21,14 @@ const Post = () => {
 
     const postData = useSelector(state => getPostById(state, id));
 
+    console.log('postData', postData)
+
     if (!postData || postData.length === 0) return <Navigate to="/" />;
 
     return (
         <div>
             <div className='d-flex justify-content-around'>
-                <h1>{postData[0].title}</h1>
+                <h1>{postData.title}</h1>
                 <div className='d-flex'>
                     <ButtonMain href={`/post/edit/${id}`} variant='outline-info'>Edit</ButtonMain>
 
@@ -36,15 +40,14 @@ const Post = () => {
             <div className='d-flex justify-content-around'>
                 <Card className='mx-auto mb-4 border-0'>
 
-                    {postData.map(post =>
-                        <CardPost
-                            key={post.id}
-                            id={post.id}
-                            title={post.title}
-                            author={post.author}
-                            publishedDate={post.publishedDate}
-                            shortDescription={post.shortDescription}
-                        />)}
+                    <CardPost
+                        key={postData.id}
+                        id={postData.id}
+                        title={postData.title}
+                        author={postData.author}
+                        publishedDate={postData.publishedDate}
+                        shortDescription={postData.shortDescription}
+                    />
                 </Card>
             </div>
 
