@@ -41,8 +41,8 @@ const AddPostForm = () => {
             </Form.Group>
             <Form.Group className='mb-3 col-md-6' controlId='AddPostForm.ControlInput3'>
                 <Form.Label>Published</Form.Label>
-                <Form.Control type='text' placeholder='Enter published'
-                    value={publishedDate} onChange={e => setPublishedDate(e.target.value)} />
+                <Form.Control type='date' value={publishedDate} onChange={e => setPublishedDate(e.target.value)} required
+                />
             </Form.Group>
             <Form.Group className='mb-3 col-md-8' controlId='AddPostForm.ControlInput4'>
                 <Form.Label>Short description</Form.Label>
