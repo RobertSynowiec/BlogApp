@@ -2,7 +2,7 @@ import CardPost from '../../views/CardPost/CardPost';
 import { getPostById } from '../../../redux/postsRedux';
 import { useSelector } from 'react-redux';
 import { useParams } from 'react-router';
-import { Navigate } from 'react-router-dom';
+import { Navigate, NavLink } from 'react-router-dom';
 import ButtonMain from '../../common/ButtonMain/ButtonMain';
 import Card from 'react-bootstrap/Card';
 import { useState } from 'react';
@@ -30,7 +30,7 @@ const Post = () => {
             <div className='d-flex justify-content-around'>
                 <h1>{postData.title}</h1>
                 <div className='d-flex'>
-                    <ButtonMain href={`/post/edit/${id}`} variant='outline-info'>Edit</ButtonMain>
+                    <ButtonMain as={NavLink} to={`/post/edit/${id}`} variant='outline-info'>Edit</ButtonMain>
 
                     <ButtonMain className='ms-1' variant="outline-danger" onClick={handleShow}>
                         Delete

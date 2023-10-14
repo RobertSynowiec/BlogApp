@@ -6,6 +6,7 @@ import CardPost from '../CardPost/CardPost';
 import { getAllPosts } from '../../../redux/postsRedux'
 import Card from 'react-bootstrap/Card';
 import ButtonMain from '../../common/ButtonMain/ButtonMain'
+import { NavLink } from 'react-router-dom';
 
 const Posts = () => {
 
@@ -25,7 +26,7 @@ const Posts = () => {
 
                         />
                         <ButtonMain className='ms-3'
-                            href={`/post/${post.id}`} variant="primary">Read more
+                            as={NavLink} to={`/post/${post.id}`} variant="primary">Read more
                         </ButtonMain>
                     </Card>
                 </Col>
