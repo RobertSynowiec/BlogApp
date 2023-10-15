@@ -10,18 +10,11 @@ import ModuleDeletePost from '../../common/Modal/Modal'
 
 const Post = () => {
 
-    //debugger
     const [show, setShow] = useState(false);
-
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
-
-
     const { id } = useParams();
-
     const postData = useSelector(state => getPostById(state, id));
-
-    console.log('postData', postData)
 
     if (!postData || postData.length === 0) return <Navigate to="/" />;
 
