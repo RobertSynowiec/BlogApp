@@ -1,7 +1,10 @@
-import { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import CustomQuillEditor from '../../common/ReactQuill/ReactQuill'
 import Form from 'react-bootstrap/Form';
 import ButtonMain from '../../common/ButtonMain/ButtonMain';
+import DatePicker from 'react-datepicker';
+import dateToStr from '../../../utils/dateToStr'
+import 'react-datepicker/dist/react-datepicker.css';
 
 const PostForm = ({ action, actionText, props }) => {
 
@@ -20,9 +23,8 @@ const PostForm = ({ action, actionText, props }) => {
 
     const handleSubmit = e => {
         e.preventDefault();
-        action({ title, author, publishedDate, shortDescription, content });
+        action({ title, author, publishedDate: dateToStr(publishedDate), shortDescription, content });
     };
-
 
     return (
         <Form>
@@ -38,8 +40,11 @@ const PostForm = ({ action, actionText, props }) => {
             </Form.Group>
             <Form.Group className='mb-3 col-md-6' controlId='PostForm.ControlInput3'>
                 <Form.Label>Published</Form.Label>
-                <Form.Control type='date' value={publishedDate} onChange={e => setPublishedDate(e.target.value)} required
-                />
+                <div>
+                    <DatePicker selected={publishedDate} onChange={date => setPublishedDate(date)}
+                        dateFormat="dd/MM/yy" />
+
+                </div>
             </Form.Group>
             <Form.Group className='mb-3 col-md-8' controlId='PostForm.ControlInput4'>
                 <Form.Label>Short description</Form.Label>
