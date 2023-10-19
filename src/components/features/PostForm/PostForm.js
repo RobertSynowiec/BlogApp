@@ -6,7 +6,8 @@ import DatePicker from 'react-datepicker';
 import dateToStr from '../../../utils/dateToStr'
 import 'react-datepicker/dist/react-datepicker.css';
 
-const PostForm = ({ action, actionText, props }) => {
+const PostForm = ({ action, actionText, ...props }) => {
+    console.log('props ', props)
 
     const initialTitle = props && props.title ? props.title : '';
     const initialAuthor = props && props.author ? props.author : '';
