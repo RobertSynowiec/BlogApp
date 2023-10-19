@@ -1,5 +1,6 @@
-import Form from 'react-bootstrap/Form';
 import { useState } from 'react';
+import CustomQuillEditor from '../../common/ReactQuill/ReactQuill'
+import Form from 'react-bootstrap/Form';
 import ButtonMain from '../../common/ButtonMain/ButtonMain';
 
 const PostForm = ({ action, actionText, props }) => {
@@ -15,6 +16,7 @@ const PostForm = ({ action, actionText, props }) => {
     const [publishedDate, setPublishedDate] = useState(initialPublishedDate || '');
     const [shortDescription, setShortDescription] = useState(initialShortDescription || '');
     const [content, setContent] = useState(initialContent || '');
+
 
     const handleSubmit = e => {
         e.preventDefault();
@@ -46,8 +48,7 @@ const PostForm = ({ action, actionText, props }) => {
             </Form.Group>
             <Form.Group className='mb-3 col-md-8' controlId='PostForm.ControlInput5'>
                 <Form.Label>Main content</Form.Label>
-                <Form.Control as='textarea' rows={7} placeholder='Leave a comment here'
-                    value={content} onChange={e => setContent(e.target.value)} />
+                <CustomQuillEditor value={content} onChange={setContent} placeholder='Leave a comment here' />
             </Form.Group>
             <ButtonMain onClick={handleSubmit} className='ms-1 btn btn-primary'
             >
