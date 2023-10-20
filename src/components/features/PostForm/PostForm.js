@@ -25,7 +25,6 @@ const PostForm = ({ action, actionText, ...props }) => {
     const [contentError, setContentError] = useState(false);
     const [dateError, setDateError] = useState(false);
 
-
     const handleSubmit = () => {
         setContentError(!content)
         setDateError(!publishedDate)
@@ -39,10 +38,12 @@ const PostForm = ({ action, actionText, ...props }) => {
             <Form.Group className='mb-3 col-md-6' controlId='PostForm.ControlInput1'>
                 <Form.Label>Title</Form.Label>
                 <Form.Control
-                    input {...register("title", { required: true, minLength: 3 })}
+                    {...register("title", { required: true, minLength: 3 })}
                     type='text'
                     placeholder='Enter title'
-                    value={title} onChange={e => setTitle(e.target.value)} />
+                    value={title}
+                    onChange={e => setTitle(e.target.value)}
+                />
 
                 {errors.title && errors.title.type === "required" && <small className="d-block form-text text-danger mt-2">This field is required</small>}
 
@@ -52,7 +53,7 @@ const PostForm = ({ action, actionText, ...props }) => {
             <Form.Group className='mb-3 col-md-6' controlId='PostForm.ControlInput2'>
                 <Form.Label>Author</Form.Label>
                 <Form.Control
-                    input {...register("author", { required: true, minLength: 3 })}
+                    {...register("author", { required: true, minLength: 3 })}
                     type='text'
                     placeholder='Enter author'
                     value={author} onChange={e => setAuthor(e.target.value)} />
@@ -61,7 +62,7 @@ const PostForm = ({ action, actionText, ...props }) => {
 
                 {errors.author && errors.author.type === "minLength" && <small className="d-block form-text text-danger mt-2">The minimum number of characters is 3</small>}
             </Form.Group>
-            <Form.Group className='mb-3 col-md-6' controlId='PostForm.ControlInput3'>
+            <Form.Group className='mb-3 col-md-6' >
                 <Form.Label>Published</Form.Label>
                 <div>
                     <DatePicker selected={publishedDate} onChange={date => setPublishedDate(date)}
@@ -73,7 +74,7 @@ const PostForm = ({ action, actionText, ...props }) => {
             <Form.Group className='mb-3 col-md-8' controlId='PostForm.ControlInput4'>
                 <Form.Label>Short description</Form.Label>
                 <Form.Control
-                    input {...register("shortDescription", { required: true, minLength: 20 })}
+                    {...register("shortDescription", { required: true, minLength: 20 })}
                     as='textarea'
                     rows={5} placeholder='Leave a comment here'
                     value={shortDescription} onChange={e => setShortDescription(e.target.value)} />
@@ -81,7 +82,7 @@ const PostForm = ({ action, actionText, ...props }) => {
 
                 {errors.shortDescription && errors.shortDescription.type === "minLength" && <small className="d-block form-text text-danger mt-2">Short description is too short (min is 20)</small>}
             </Form.Group>
-            <Form.Group className='mb-3 col-md-8' controlId='PostForm.ControlInput5'>
+            <Form.Group className='mb-3 col-md-8'>
                 <Form.Label>Main content</Form.Label>
                 <CustomQuillEditor value={content} onChange={setContent} placeholder='Leave a comment here' />
                 {contentError && <small className="d-block form-text text-danger mt-2">Content can't be empty</small>}
