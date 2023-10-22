@@ -6,7 +6,7 @@ import Col from 'react-bootstrap/Col';
 import Card from 'react-bootstrap/Card';
 import CardPost from '../../views/CardPost/CardPost';
 import ButtonMain from '../../common/ButtonMain/ButtonMain';
-import { NavLink } from 'react-router-dom';
+import { Navigate, NavLink } from 'react-router-dom';
 
 const SingleCategory = () => {
 
@@ -14,6 +14,8 @@ const SingleCategory = () => {
     const posts = useSelector(getAllPosts);
     const filteredPosts = posts.filter(post => post.category.toLowerCase() === name);
     console.log('filteredPosts ', filteredPosts);
+
+    if (!filteredPosts || filteredPosts.length === 0) return <Navigate to="/categories" />;
 
     return (
         <>
