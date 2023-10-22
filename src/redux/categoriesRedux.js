@@ -5,6 +5,7 @@ const selectCategories = state => state.categories;
 
 export const getAllCategories = createSelector([selectCategories], categories => categories);
 
+
 // actions
 const createActionName = actionName => `app/categories/${actionName}`;
 const INITIAL_STATE = createActionName('INITIAL_STATE');

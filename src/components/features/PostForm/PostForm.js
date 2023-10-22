@@ -92,7 +92,7 @@ const PostForm = ({ action, actionText, ...props }) => {
                 >
                     <option value="">Select a category</option>
                     {categories.map(category => (
-                        <option key={category.id} value={category.name}>
+                        <option key={category.name} value={category.name}>
                             {category.name}
                         </option>
                     ))}

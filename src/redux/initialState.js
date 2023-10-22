@@ -7,7 +7,7 @@ const initialState = {
             shortDescription: 'Short description of the article... 1 ',
             content: 'Main content of the article 1',
             publishedDate: '02-02-2020',
-            category: 'Music',
+            category: 'Movies',
             author: 'John Doe'
         },
         {
@@ -41,15 +41,12 @@ const initialState = {
     categories: [
         {
             name: 'Sport',
-            id: '1'
         },
         {
             name: 'News',
-            id: '2'
         },
         {
             name: 'Movies',
-            id: '3'
         }
     ]
 };
