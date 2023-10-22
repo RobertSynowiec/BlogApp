@@ -6,6 +6,8 @@ import DatePicker from 'react-datepicker';
 import dateToStr from '../../../utils/dateToStr'
 import 'react-datepicker/dist/react-datepicker.css';
 import { useForm } from "react-hook-form";
+import { useSelector } from 'react-redux';
+import { getAllCategories } from '../../../redux/categoriesRedux';
 
 const PostForm = ({ action, actionText, ...props }) => {
 
@@ -16,23 +18,29 @@ const PostForm = ({ action, actionText, ...props }) => {
     const initialPublishedDate = props && props.publishedDate ? props.publishedDate : '';
     const initialShortDescription = props && props.shortDescription ? props.shortDescription : '';
     const initialContent = props && props.content ? props.content : '';
+    const initialCategory = props && props.category ? props.category : '';
+    console.log('initialCategory  ', initialCategory)
 
     const [title, setTitle] = useState(initialTitle || '');
     const [author, setAuthor] = useState(initialAuthor || '');
     const [publishedDate, setPublishedDate] = useState(initialPublishedDate || '');
+    const [category, setCategory] = useState(initialCategory || '');
+    console.log('category  ', category)
     const [shortDescription, setShortDescription] = useState(initialShortDescription || '');
     const [content, setContent] = useState(initialContent || '');
     const [contentError, setContentError] = useState(false);
     const [dateError, setDateError] = useState(false);
+    const categories = useSelector(getAllCategories);
+
+    console.log('categories  ', categories)
 
     const handleSubmit = () => {
         setContentError(!content)
         setDateError(!publishedDate)
         if (content && publishedDate) {
-            action({ title, author, publishedDate: dateToStr(publishedDate), shortDescription, content });
+            action({ title, author, publishedDate: dateToStr(publishedDate), category, shortDescription, content });
         }
     };
-
     return (
         <Form>
             <Form.Group className='mb-3 col-md-6' controlId='PostForm.ControlInput1'>
@@ -70,6 +78,30 @@ const PostForm = ({ action, actionText, ...props }) => {
 
                 </div>
                 {dateError && <small className="d-block form-text text-danger mt-2">Content can't be empty</small>}
+            </Form.Group>
+            <Form.Group className='mb-3 col-md-6'>
+                <Form.Label>Select a category</Form.Label>
+                <Form.Select
+                    {...register("category", { required: true })}
+                    className='mb-3 col-md-6'
+                    aria-label="Select a category"
+                    value={category}
+                    onChange={e => setCategory(e.target.value)}
+                    type="text"
+
+                >
+                    <option value="">Select a category</option>
+                    {categories.map(category => (
+                        <option key={category.id} value={category.name}>
+                            {category.name}
+                        </option>
+                    ))}
+                </Form.Select>
+                {errors.category && errors.category.type === "required" && (
+                    <small className="d-block form-text text-danger mt-2">
+                        This field is required
+                    </small>
+                )}
             </Form.Group>
             <Form.Group className='mb-3 col-md-8' controlId='PostForm.ControlInput4'>
                 <Form.Label>Short description</Form.Label>

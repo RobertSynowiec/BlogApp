@@ -1,6 +1,6 @@
 import Card from 'react-bootstrap/Card';
 
-const CardPost = ({ title, author, publishedDate, shortDescription }) => {
+const CardPost = ({ title, author, publishedDate, category, shortDescription }) => {
 
     return (
         <>
@@ -12,6 +12,7 @@ const CardPost = ({ title, author, publishedDate, shortDescription }) => {
                 <Card.Text>
                     <span style={{ fontWeight: 'bold', marginRight: '8px' }}>PublishedDate:</span> {publishedDate}
                 </Card.Text>
+                <Card.Text><span style={{ fontWeight: 'bold', marginRight: '8px' }}>Category:</span> {category}</Card.Text>
                 <Card.Text>{shortDescription}</Card.Text>
             </Card.Body>
         </>

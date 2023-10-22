@@ -22,8 +22,8 @@ const Posts = () => {
                             title={post.title}
                             author={post.author}
                             publishedDate={post.publishedDate}
+                            category={post.category}
                             shortDescription={post.shortDescription}
-
                         />
                         <ButtonMain className='ms-3'
                             as={NavLink} to={`/post/${post.id}`} variant="primary">Read more
