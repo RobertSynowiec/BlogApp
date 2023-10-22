@@ -15,6 +15,7 @@ const NavBar = () => {
                 <Navbar.Collapse className='justify-content-end'>
                     <Nav>
                         <Nav.Link className={styles.navTextColor} as={NavLink} to='/'>Home</Nav.Link>
+                        <Nav.Link className={styles.navTextColor} as={NavLink} to='/categories'>Categories</Nav.Link>
                         <Nav.Link className={styles.navTextColor} as={NavLink} to='/about'>About</Nav.Link>
                     </Nav>
                 </Navbar.Collapse>
